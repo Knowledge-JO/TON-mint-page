@@ -1,1 +1,2 @@
-export const collectionAddress = 'EQBFSg8u06rvAn9j4JmCWD2jBSYZ7Eh-ajRNZzpFMjp-rR7c';
+export const collectionAddress =
+  "EQCcu8Hj3QCQXiuzckcaFWwgUfjw7NzX08UqfRjjv28cxRpw";

@@ -82,11 +82,11 @@ export function useMint() {
       if (!owner) return;
       const res = await openNftCollectionContract?.getCollectionData();
       if (res) {
-        await openNftCollectionContract?.sendMint(sender, toNano("0.165"), {
+        await openNftCollectionContract?.sendMint(sender, toNano("0.15"), {
           queryId: res.nextItemIndex,
           itemOwnerAddress: Address.parse(owner),
           itemIndex: res.nextItemIndex,
-          commonContentUrl: `${res.nextItemIndex}.json`,
+          commonContentUrl: `/`,
         });
       }
     },
@@ -100,7 +100,7 @@ export function useMint() {
           queryId: null,
           itemIndex: res.nextItemIndex,
           itemOwnerAddress: Address.parse(owner),
-          commonContentUrl: `${res.nextItemIndex}.json`,
+          commonContentUrl: `/`,
         });
       }
     },

@@ -9,25 +9,19 @@ import { useMint } from "./hooks/useMint";
 function App() {
   const userFriendlyAddress = useTonAddress(true);
   const connectionRestored = useIsConnectionRestored();
-  const {
-    timeStatus,
-    publicMint,
-    whitelistMint,
-    nextItemIndex,
-    getNextItemIndex,
-  } = useMint();
+  const { timeStatus, publicMint, getNextItemIndex } = useMint();
 
-  const isWhitelist =
-    Math.floor(Date.now() / 1000) < timeStatus?.publicStartTime;
+  // const isWhitelist =
+  //   Math.floor(Date.now() / 1000) < timeStatus?.publicStartTime;
 
   const isPublic = Math.floor(Date.now() / 1000) >= timeStatus?.publicStartTime;
 
   const notStarted = timeStatus?.started == 0;
 
-  const totalRemaining =
-    nextItemIndex !== undefined
-      ? `${20000 - nextItemIndex}/20000`
-      : "Loading...";
+  // const totalRemaining =
+  //   nextItemIndex !== undefined
+  //     ? `${20000 - nextItemIndex}/20000`
+  //     : "Loading...";
 
   function truncateAddress(address) {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
@@ -62,11 +56,11 @@ function App() {
 
         <div className="mt-6 flex flex-col gap-4 w-full">
           <h1 className="font-bold text-xl">Investor Mint Phase</h1>
-          <div className="flex gap-10 items-center justify-between">
+          {/* <div className="flex gap-10 items-center justify-between">
             <p className="w-1/2">Total Supply:</p>
             <p className="w-1/2 text-right">100</p>
-          </div>
-          <p>You are not eligible to mint this phase</p>
+          </div> */}
+          <p>You are eligible to mint this phase</p>
           <button
             disabled={notStarted || !isPublic}
             className="bg-blue-500 px-8 py-3 rounded-lg hover:bg-blue-400 disabled:opacity-50"
@@ -78,7 +72,7 @@ function App() {
             Mint
           </button>
         </div>
-        <div className="mt-6 flex flex-col gap-4 w-full">
+        {/* <div className="mt-6 flex flex-col gap-4 w-full">
           <h1 className="font-bold text-xl">Whitelist Mint Phase</h1>
           <div className="flex gap-10 items-center justify-between">
             <p className="w-1/2">Total Supply:</p>
@@ -95,7 +89,7 @@ function App() {
           >
             Mint
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
